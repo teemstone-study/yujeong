@@ -158,8 +158,9 @@
 		constructor() {
 			this.firstValue = null;
 			this.secondValue = null;
-			this.selectedOprator = null;
+			this.selectedOperator = null;
 			this.currentValue = 0;
+			this.displayText = '';
 		}
 
 		plus(n1, n2) {
@@ -180,10 +181,16 @@
 
 		clear() {
 			this.currentValue = 0;
+			this.displayText = '';
+			this.firstValue = null;
+			this.secondValue = null;
+			this.selectedOperator = null;
+			console.log(this);
 		}
 
 		plusminus() {
 			this.currentValue = this.currentValue * -1;
+			console.log(this);
 		}
 
 		percentage() {
@@ -191,37 +198,59 @@
 		}
 
 		inputNumber(number) {
-			// if (selectedOprator == null) {
+			// if (selectedOperator == null) {
 
-			if (!this.selectedOeprator) {
+			if (!this.selectedOperator) {
 				const nextFirstValue = this.firstValue === null ? '' : String(this.firstValue);
 				this.firstValue = nextFirstValue + String(number);
 			} else {
 				const nextSecondValue = this.secondValue === null ? '' : String(this.secondValue);
 				this.secondValue = nextSecondValue + String(number);
 			}
+
+			this.displayText = this.displayText + String(number);
 		}
 
-		selectOeprator(operator) {
-			this.selectedOeprator = operator;
+		selectOperator(operator) {
+			this.selectedOperator = operator;
+			//이 클래스의 displayText 에는 이 클래스의 displayText 와 연산기호를 함께 표기해줄거다.
+			// 인스턴스의 displayText에 값을 할당한다.
+			// this.displayText + this.selectedOperator
+			this.displayText = this.displayText + this.selectedOperator;
 		}
 
 		makeResult() {
-			if (this.selectedOeprator === '+') {
-				return this.plus(Number(this.firstValue), Number(this.secondValue));
+			if (this.selectedOperator === '+') {
+				const result = this.plus(Number(this.firstValue), Number(this.secondValue));
+				console.log(this);
+				this.currentValue = result;
+				this.displayText = String(result);
 			}
 
-			if (this.selectedOeprator === '-') {
-				return this.minus(Number(this.firstValue), Number(this.secondValue));
+			if (this.selectedOperator === '-') {
+				const result = this.minus(Number(this.firstValue), Number(this.secondValue));
+				console.log(this);
+				this.currentValue = result;
+				this.displayText = String(result);
 			}
 
-			if (this.selectedOeprator === '*') {
-				return this.multi(Number(this.firstValue), Number(this.secondValue));
+			if (this.selectedOperator === '*') {
+				const result = this.multi(Number(this.firstValue), Number(this.secondValue));
+				console.log(this);
+				this.currentValue = result;
+				this.displayText = String(result);
 			}
 
-			if (this.selectedOeprator === '/') {
-				return this.divi(Number(this.firstValue), Number(this.secondValue));
+			if (this.selectedOperator === '/') {
+				const result = this.divi(Number(this.firstValue), Number(this.secondValue));
+				console.log(this);
+				this.currentValue = result;
+				this.displayText = String(result);
 			}
+		}
+
+		getDisplayNumber() {
+			return this.displayText;
 		}
 	}
 
@@ -230,72 +259,13 @@
 	// calculator.inputNumber(1);
 	// calculator.inputNumber(1);
 	// calculator.inputNumber(1);
-	// calculator.selectOeprator('/');
+	// calculator.selectOperator('/');
 	// calculator.inputNumber(1);
 	// calculator.inputNumber(1);
 	// console.log(calculator);
 	// console.log(calculator.makeResult());
 
 	onMount(() => {
-		const ac = document.querySelector('.allClear');
-		ac.style.color = 'red';
-		console.log(ac);
-
-		const plma = document.querySelector('.plusMinus');
-		plma.style.color = 'red';
-
-		const plusMinuskHandler = () => {
-			console.log('aa');
-		};
-
-		const inputNumberHandler = () => {
-			console.log('bb');
-			// 숫자 누르면 인풋창에 찍히는 기능
-		};
-
-		const inputACHandler = () => {
-			// clear()
-			console.log('cc');
-		};
-
-		const inputPlmaHandler = () => {
-			// plusminus()
-			console.log('cc');
-		};
-
-		const inputPctgHandler = () => {
-			//percentage()
-			console.log('cc');
-		};
-
-		const inputDiviHandler = () => {
-			//divi(n1, n2)
-			console.log('cc');
-		};
-
-		const inputMultiHandler = () => {
-			//multi(n1, n2)
-			console.log('cc');
-		};
-
-		const inputMinusHandler = () => {
-			//minus(n1, n2)
-			console.log('cc');
-		};
-
-		const inputPlusHandler = () => {
-			//plus(n1, n2)
-			console.log('cc');
-		};
-
-		const inputEqualHandler = () => {
-			// 아직 정의 안함
-			console.log('cc');
-		};
-
-		plma?.addEventListener('click', plusMinuskHandler);
-		console.log(plma);
-
 		const pctg = document.querySelector('.percentage');
 		const num1 = document.querySelector('.num1');
 		const num2 = document.querySelector('.num2');
@@ -312,7 +282,80 @@
 		const minus = document.querySelector('.minus');
 		const plus = document.querySelector('.plus');
 		const equal = document.querySelector('.equal');
+		const input = document.querySelector('.result');
+		const ac = document.querySelector('.allClear');
 
+		ac.style.color = 'red';
+		console.log(ac);
+
+		const plma = document.querySelector('.plusMinus');
+		plma.style.color = 'red';
+
+		const plusMinuskHandler = () => {
+			console.log('plusMinuskHandler');
+		};
+
+		const inputNumberHandler = (e) => {
+			const number = Number(e.target.innerText);
+			console.log('bb', number);
+			calculator.inputNumber(number);
+
+			input.value = calculator.getDisplayNumber();
+
+			// 숫자 누르면 인풋창에 찍히는 기능
+		};
+
+		const inputACHandler = () => {
+			console.log('inputACHandler');
+			calculator.clear();
+			input.value = calculator.getDisplayNumber();
+		};
+
+		const inputPlmaHandler = () => {
+			console.log('inputPlmaHandler');
+			calculator.plusminus();
+			input.value = calculator.currentValue;
+		};
+
+		const inputPctgHandler = () => {
+			//percentage()
+			console.log('inputPctgHandler');
+			calculator.percentage();
+			input.value = calculator.percentage();
+		};
+
+		const inputDiviHandler = () => {
+			console.log('inputDiviHandler');
+			calculator.selectOperator('/');
+			// console.log(calculator);
+		};
+
+		const inputMultiHandler = () => {
+			console.log('inputMultiHandler');
+			calculator.selectOperator('*');
+		};
+
+		const inputMinusHandler = () => {
+			//minus(n1, n2)
+			console.log('inputMinusHandler');
+		};
+
+		const inputPlusHandler = () => {
+			//plus(n1, n2)
+			console.log('inputPlusHandler');
+			calculator.selectOperator('+');
+			input.value = calculator.getDisplayNumber();
+			// console.log(calculator);
+		};
+
+		const inputEqualHandler = () => {
+			// 아직 정의 안함
+			console.log(calculator.makeResult());
+			console.log('inputEqualHandler');
+			input.value = calculator.getDisplayNumber();
+		};
+
+		plma?.addEventListener('click', inputPlmaHandler);
 		num0?.addEventListener('click', inputNumberHandler);
 		num1?.addEventListener('click', inputNumberHandler);
 		num2?.addEventListener('click', inputNumberHandler);
@@ -328,6 +371,8 @@
 		minus?.addEventListener('click', inputMinusHandler);
 		plus?.addEventListener('click', inputPlusHandler);
 		equal?.addEventListener('click', inputEqualHandler);
+		pctg?.addEventListener('click', inputPctgHandler);
+		ac?.addEventListener('click', inputACHandler);
 	});
 </script>
 
