@@ -18,3 +18,4 @@ yarn.lock
 /.routify
 .eslintrc.cjs
 vite.config.ts
+/src/pages/html/*
