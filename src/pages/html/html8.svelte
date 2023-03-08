@@ -240,6 +240,94 @@
 		const ac = document.querySelector('.allClear');
 		ac.style.color = 'red';
 		console.log(ac);
+
+		const plma = document.querySelector('.plusMinus');
+		plma.style.color = 'red';
+
+		const plusMinuskHandler = () => {
+			console.log('aa');
+		};
+
+		const inputNumberHandler = () => {
+			console.log('bb');
+			// 숫자 누르면 인풋창에 찍히는 기능
+		};
+
+		const inputACHandler = () => {
+			// clear()
+			console.log('cc');
+		};
+
+		const inputPlmaHandler = () => {
+			// plusminus()
+			console.log('cc');
+		};
+
+		const inputPctgHandler = () => {
+			//percentage()
+			console.log('cc');
+		};
+
+		const inputDiviHandler = () => {
+			//divi(n1, n2)
+			console.log('cc');
+		};
+
+		const inputMultiHandler = () => {
+			//multi(n1, n2)
+			console.log('cc');
+		};
+
+		const inputMinusHandler = () => {
+			//minus(n1, n2)
+			console.log('cc');
+		};
+
+		const inputPlusHandler = () => {
+			//plus(n1, n2)
+			console.log('cc');
+		};
+
+		const inputEqualHandler = () => {
+			// 아직 정의 안함
+			console.log('cc');
+		};
+
+		plma?.addEventListener('click', plusMinuskHandler);
+		console.log(plma);
+
+		const pctg = document.querySelector('.percentage');
+		const num1 = document.querySelector('.num1');
+		const num2 = document.querySelector('.num2');
+		const num3 = document.querySelector('.num3');
+		const num4 = document.querySelector('.num4');
+		const num5 = document.querySelector('.num5');
+		const num6 = document.querySelector('.num6');
+		const num7 = document.querySelector('.num7');
+		const num8 = document.querySelector('.num8');
+		const num9 = document.querySelector('.num9');
+		const num0 = document.querySelector('.num0');
+		const division = document.querySelector('.divi');
+		const multiply = document.querySelector('.multi');
+		const minus = document.querySelector('.minus');
+		const plus = document.querySelector('.plus');
+		const equal = document.querySelector('.equal');
+
+		num0?.addEventListener('click', inputNumberHandler);
+		num1?.addEventListener('click', inputNumberHandler);
+		num2?.addEventListener('click', inputNumberHandler);
+		num3?.addEventListener('click', inputNumberHandler);
+		num4?.addEventListener('click', inputNumberHandler);
+		num5?.addEventListener('click', inputNumberHandler);
+		num6?.addEventListener('click', inputNumberHandler);
+		num7?.addEventListener('click', inputNumberHandler);
+		num8?.addEventListener('click', inputNumberHandler);
+		num9?.addEventListener('click', inputNumberHandler);
+		division?.addEventListener('click', inputDiviHandler);
+		multiply?.addEventListener('click', inputMultiHandler);
+		minus?.addEventListener('click', inputMinusHandler);
+		plus?.addEventListener('click', inputPlusHandler);
+		equal?.addEventListener('click', inputEqualHandler);
 	});
 </script>
 
