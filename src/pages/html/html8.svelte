@@ -189,13 +189,11 @@
 		}
 
 		plusminus() {
-			const firstPlmaValue = this.firstValue === null ? '-0' : String(this.firstValue * -1);
-			const secondPlmaValue =
-				this.secondValue === null ? '-0' : String(this.secondValue * -1);
-			// const resultPlmaValue = // this.firstValue = firstPlmaValue 넣고 this.secondValue = secondPlmaValue 넣어서
-			// makeResult() 돌리고 결과값
-			//
-
+			if (this.currentValue && this.firstValue && this.selectedOperator && this.secondValue) {
+				this.currentValue = this.currentValue * -1;
+				this.displayText = String(this.currentValue);
+				return;
+			}
 			if (this.firstValue === null) {
 				console.log('aaaa');
 				this.firstValue = '-0';
@@ -235,10 +233,6 @@
 				console.log(this);
 				return;
 			}
-
-			// this.firstValue = this.firstValue===null|| ? -1 * this.firstValue : '-0';
-			// this.displayText = String(this.firstValue);
-			console.log(this);
 		}
 
 		percentage() {
