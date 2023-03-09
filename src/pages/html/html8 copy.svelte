@@ -161,7 +161,6 @@
 			this.selectedOperator = null;
 			this.currentValue = 0;
 			this.displayText = '';
-			this.isdecimalPoint = false;
 		}
 
 		plus(n1, n2) {
@@ -237,111 +236,21 @@
 		}
 
 		percentage() {
-			if (this.currentValue && this.firstValue && this.selectedOperator && this.secondValue) {
-				this.currentValue = this.currentValue * 0.01;
-				this.displayText = String(this.currentValue);
-				return;
-			}
-
-			if (this.firstValue) {
-				if (!this.secondValue && !this.selectedOperator) {
-					this.firstValue = String(this.firstValue * 0.01);
-					this.displayText = this.firstValue;
-					console.log(this);
-
-					return;
-				}
-				if (this.firstValue && !this.secondValue && this.selectedOperator) {
-					this.displayText = String(this.firstValue * 0.01);
-					this.displayText = this.firstValue;
-					console.log(this);
-					return;
-				}
-			}
-
-			if (this.firstValue && this.selectedOperator && this.secondValue) {
-				this.secondValue = String(this.secondValue * 0.01);
-				this.displayText = `${this.firstValue} ${this.selectedOperator} ${this.secondValue}`;
-				console.log(this);
-				return;
-			}
-		}
-
-		decimal() {
-			if (this.currentValue && this.firstValue && this.selectedOperator && this.secondValue) {
-				this.currentValue = 0;
-				this.displayText = String(this.currentValue) + '.';
-				console.log(this);
-				return;
-			}
-
-			if (this.firstValue) {
-				if (!this.secondValue && !this.selectedOperator) {
-					this.firstValue = String(this.firstValue) + '.';
-					this.displayText = String(this.firstValue);
-					console.log(this);
-					return;
-				}
-				if (this.firstValue && !this.secondValue && this.selectedOperator) {
-					this.currentValue = 0;
-					this.displayText = String(this.currentValue) + '.';
-					console.log(this);
-					return;
-				}
-			}
-
-			if (this.firstValue && this.selectedOperator && this.secondValue) {
-				this.secondValue = String(this.secondValue) + '.';
-				this.displayText = `${this.firstValue} ${this.selectedOperator} ${this.secondValue}`;
-				console.log(this);
-				return;
-			}
-
-			if (!this.firstValue) {
-				this.isdecimalPoint = true;
-			}
-			console.log('해당없음', this);
+			this.currentValue = this.currentValue * 0.01;
 		}
 
 		inputNumber(number) {
-			// if (
-			// 	this.firstValue &&
-			// 	this.selectedOperator &&
-			// 	this.secondValue &&
-			// 	this.isdecimalPoint
-			// ) {
-			// 	this.secondValue = number * 0.1;
-			// 	this.displayText = String(this.secondValue);
-			// 	console.log(this);
-			// 	return;
-			// }
-
-			if (this.isdecimalPoint && !this.firstValue && !this.displayText) {
-				this.firstValue = 0.1 * number;
-				this.displayText = String(this.firstValue);
-				this.isdecimalPoint = false;
-				return;
-			}
-
-			if (this.firstValue && !this.secondValue && this.isdecimalPoint) {
-				this.firstValue = number * 0.1;
-				console.log(this);
-				this.displayText = this.displayText + String(number);
-				this.isdecimalPoint = false;
-				return;
-			}
+			// if (selectedOperator == null) {
 
 			if (!this.selectedOperator) {
 				const nextFirstValue = this.firstValue === null ? '' : String(this.firstValue);
 				this.firstValue = nextFirstValue + String(number);
-				this.displayText = this.displayText + String(number);
 			} else {
 				const nextSecondValue = this.secondValue === null ? '' : String(this.secondValue);
 				this.secondValue = nextSecondValue + String(number);
-				this.displayText = this.displayText + String(number);
-				return;
 			}
 
+			this.displayText = this.displayText + String(number);
 			console.log(this);
 		}
 
@@ -423,7 +332,6 @@
 		const equal = document.querySelector('.equal');
 		const input = document.querySelector('.result');
 		const ac = document.querySelector('.allClear');
-		const dp = document.querySelector('.decimalPoint');
 
 		ac.style.color = 'red';
 		console.log(ac);
@@ -461,7 +369,7 @@
 			//percentage()
 			console.log('inputPctgHandler');
 			calculator.percentage();
-			input.value = calculator.getDisplayNumber();
+			input.value = calculator.percentage();
 		};
 
 		const inputDiviHandler = () => {
@@ -493,14 +401,10 @@
 		};
 
 		const inputEqualHandler = () => {
+			// 아직 정의 안함
 			console.log(calculator.makeResult());
 			console.log('inputEqualHandler');
 			input.value = calculator.getDisplayNumber();
-		};
-
-		const inputDpHandler = () => {
-			calculator.decimal();
-			console.log('inputDpHandler');
 		};
 
 		plma?.addEventListener('click', inputPlmaHandler);
@@ -521,7 +425,6 @@
 		equal?.addEventListener('click', inputEqualHandler);
 		pctg?.addEventListener('click', inputPctgHandler);
 		ac?.addEventListener('click', inputACHandler);
-		dp?.addEventListener('click', inputDpHandler);
 	});
 </script>
 
