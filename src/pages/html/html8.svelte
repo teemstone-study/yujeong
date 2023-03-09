@@ -189,7 +189,55 @@
 		}
 
 		plusminus() {
-			this.currentValue = this.currentValue * -1;
+			const firstPlmaValue = this.firstValue === null ? '-0' : String(this.firstValue * -1);
+			const secondPlmaValue =
+				this.secondValue === null ? '-0' : String(this.secondValue * -1);
+			// const resultPlmaValue = // this.firstValue = firstPlmaValue 넣고 this.secondValue = secondPlmaValue 넣어서
+			// makeResult() 돌리고 결과값
+			//
+
+			if (this.firstValue === null) {
+				console.log('aaaa');
+				this.firstValue = '-0';
+				return;
+			}
+
+			if (this.firstValue === '-0') {
+				console.log('bbb');
+				this.firstValue = '0';
+				return;
+			}
+
+			if (this.firstValue === '0') {
+				console.log('cccc');
+				this.firstValue = '-0';
+				return;
+			}
+
+			if (this.firstValue) {
+				if (!this.secondValue && !this.selectedOperator) {
+					this.firstValue = String(this.firstValue * -1);
+					this.displayText = this.firstValue;
+					console.log(this);
+
+					return;
+				}
+				if (this.firstValue && !this.secondValue && this.selectedOperator) {
+					this.displayText = this.firstValue;
+					console.log(this);
+					return;
+				}
+			}
+
+			if (this.firstValue && this.selectedOperator && this.secondValue) {
+				this.secondValue = String(this.secondValue * -1);
+				this.displayText = `${this.firstValue} ${this.selectedOperator} ${this.secondValue}`;
+				console.log(this);
+				return;
+			}
+
+			// this.firstValue = this.firstValue===null|| ? -1 * this.firstValue : '-0';
+			// this.displayText = String(this.firstValue);
 			console.log(this);
 		}
 
@@ -209,6 +257,7 @@
 			}
 
 			this.displayText = this.displayText + String(number);
+			console.log(this);
 		}
 
 		selectOperator(operator) {
@@ -222,30 +271,34 @@
 		makeResult() {
 			if (this.selectedOperator === '+') {
 				const result = this.plus(Number(this.firstValue), Number(this.secondValue));
-				console.log(this);
 				this.currentValue = result;
 				this.displayText = String(result);
+				console.log(this);
+				return;
 			}
 
 			if (this.selectedOperator === '-') {
 				const result = this.minus(Number(this.firstValue), Number(this.secondValue));
-				console.log(this);
 				this.currentValue = result;
 				this.displayText = String(result);
+				console.log(this);
+				return;
 			}
 
 			if (this.selectedOperator === '*') {
 				const result = this.multi(Number(this.firstValue), Number(this.secondValue));
-				console.log(this);
 				this.currentValue = result;
 				this.displayText = String(result);
+				console.log(this);
+				return;
 			}
 
 			if (this.selectedOperator === '/') {
 				const result = this.divi(Number(this.firstValue), Number(this.secondValue));
-				console.log(this);
 				this.currentValue = result;
 				this.displayText = String(result);
+				console.log(this);
+				return;
 			}
 		}
 
@@ -255,6 +308,7 @@
 	}
 
 	const calculator = new Calculator();
+
 	// 작동 점검
 	// calculator.inputNumber(1);
 	// calculator.inputNumber(1);
@@ -314,7 +368,7 @@
 		const inputPlmaHandler = () => {
 			console.log('inputPlmaHandler');
 			calculator.plusminus();
-			input.value = calculator.currentValue;
+			input.value = calculator.getDisplayNumber();
 		};
 
 		const inputPctgHandler = () => {
@@ -327,17 +381,20 @@
 		const inputDiviHandler = () => {
 			console.log('inputDiviHandler');
 			calculator.selectOperator('/');
-			// console.log(calculator);
+			input.value = calculator.getDisplayNumber();
 		};
 
 		const inputMultiHandler = () => {
 			console.log('inputMultiHandler');
 			calculator.selectOperator('*');
+			input.value = calculator.getDisplayNumber();
 		};
 
 		const inputMinusHandler = () => {
 			//minus(n1, n2)
 			console.log('inputMinusHandler');
+			calculator.selectOperator('-');
+			input.value = calculator.getDisplayNumber();
 		};
 
 		const inputPlusHandler = () => {
@@ -345,6 +402,7 @@
 			console.log('inputPlusHandler');
 			calculator.selectOperator('+');
 			input.value = calculator.getDisplayNumber();
+
 			// console.log(calculator);
 		};
 
