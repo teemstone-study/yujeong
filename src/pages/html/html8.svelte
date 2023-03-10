@@ -268,31 +268,42 @@
 		}
 
 		decimal() {
+			// .이 없으면 아래 메서드가 돌고 있으면 위에가 돌게
+
 			if (this.currentValue && this.firstValue && this.selectedOperator && this.secondValue) {
 				this.currentValue = 0;
 				this.displayText = String(this.currentValue) + '.';
+				this.isdecimalPoint = false;
 				console.log(this);
 				return;
 			}
 
 			if (this.firstValue) {
 				if (!this.secondValue && !this.selectedOperator) {
-					this.firstValue = String(this.firstValue) + '.';
+					this.firstValue = this.hasDecimal(this.firstValue)
+						? this.firstValue
+						: String(this.firstValue) + '.';
 					this.displayText = String(this.firstValue);
+					this.isdecimalPoint = false;
 					console.log(this);
 					return;
 				}
 				if (this.firstValue && !this.secondValue && this.selectedOperator) {
 					this.currentValue = 0;
 					this.displayText = String(this.currentValue) + '.';
+					this.secondValue = Number(this.displayText);
+					this.isdecimalPoint = false;
 					console.log(this);
 					return;
 				}
 			}
 
 			if (this.firstValue && this.selectedOperator && this.secondValue) {
-				this.secondValue = String(this.secondValue) + '.';
+				this.secondValue = this.hasDecimal(this.secondValue)
+					? this.secondValue
+					: String(this.secondValue) + '.';
 				this.displayText = `${this.firstValue} ${this.selectedOperator} ${this.secondValue}`;
+				this.isdecimalPoint = false;
 				console.log(this);
 				return;
 			}
@@ -315,6 +326,9 @@
 			// 	console.log(this);
 			// 	return;
 			// }
+
+			if (this.isdecimalPoint === true) {
+			}
 
 			if (this.isdecimalPoint && !this.firstValue && !this.displayText) {
 				this.firstValue = 0.1 * number;
@@ -346,11 +360,21 @@
 		}
 
 		selectOperator(operator) {
-			this.selectedOperator = operator;
+			if (this.selectedOperator) {
+				console.log('ddd');
+				this.displayText = this.displayText;
+			} else {
+				console.log('d44dd');
+				this.selectedOperator = operator;
+				this.displayText = this.displayText + this.selectedOperator;
+			}
+
 			//이 클래스의 displayText 에는 이 클래스의 displayText 와 연산기호를 함께 표기해줄거다.
 			// 인스턴스의 displayText에 값을 할당한다.
 			// this.displayText + this.selectedOperator
-			this.displayText = this.displayText + this.selectedOperator;
+			// this.displayText = this.selectedOperator
+			// 	? this.displayText
+			// 	: this.displayText + this.selectedOperator;
 		}
 
 		makeResult() {
@@ -390,6 +414,10 @@
 		getDisplayNumber() {
 			return this.displayText;
 		}
+
+		hasDecimal(numberString) {
+			return numberString.split('').find((string) => string === '.');
+		}
 	}
 
 	const calculator = new Calculator();
@@ -405,6 +433,8 @@
 	// console.log(calculator.makeResult());
 
 	onMount(() => {
+		console.log('aaaa.aa'.split(''));
+
 		const pctg = document.querySelector('.percentage');
 		const num1 = document.querySelector('.num1');
 		const num2 = document.querySelector('.num2');
