@@ -3,6 +3,7 @@
 	.calTop,
 	.calBottom {
 		display: flex;
+		background-color: black;
 	}
 
 	.calc_wrapper {
@@ -22,9 +23,11 @@
 	}
 
 	input {
-		font-size: 30px;
+		font-size: 40px;
 		text-align: right;
 		overflow: hidden;
+		background-color: black;
+		color: white;
 	}
 
 	input:focus {
@@ -113,17 +116,17 @@
 		color: white;
 		position: relative;
 	}
-	.numbKey button:active::after {
-		/* background-color: rgba(255, 255, 255, 0.8); */
-		/* background: red; */
-		/* position: absolute; */
-		/* border-radius: 50%; */
-		/* top: 0; */
-		/* left: 0; */
-		/* width: 100%; */
-		/* height: 100%; */
-		/* content: ''; */
-	}
+	/* .numbKey button:active::after { */
+	/* background-color: rgba(255, 255, 255, 0.8); */
+	/* background: red; */
+	/* position: absolute; */
+	/* border-radius: 50%; */
+	/* top: 0; */
+	/* left: 0; */
+	/* width: 100%; */
+	/* height: 100%; */
+	/* content: ''; */
+	/* } */
 
 	.numbKey button:active {
 		background-color: #545454;
