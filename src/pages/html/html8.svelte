@@ -1,11 +1,11 @@
 <style>
-	main > div,
+	.calc_wrapper,
 	.calTop,
 	.calBottom {
 		display: flex;
 	}
 
-	main > div {
+	.calc_wrapper {
 		flex-direction: column;
 		width: 400px;
 		height: 500px;
@@ -555,53 +555,51 @@
 	});
 </script>
 
-<main>
-	<div>
-		<div class="calTop">
-			<form>
-				<input class="result" type="text" />
-			</form>
-		</div>
-		<div class="calBottom">
-			<div class="calcPad1">
-				<div class="calcSign">
-					<ul>
-						<li class="funcKeytop"><button class="allClear">AC</button></li>
-						<li class="funcKeytop"><button class="plusMinus">±</button></li>
-						<li class="funcKeytop"><button class="percentage">%</button></li>
-					</ul>
-				</div>
-				<div class="keyPad">
-					<ul>
-						<div class="padRow1">
-							<li class="numbKey"><button class="num7">7</button></li>
-							<li class="numbKey"><button class="num8">8</button></li>
-							<li class="numbKey"><button class="num9">9</button></li>
-							<li class="numbKey"><button class="num4">4</button></li>
-							<li class="numbKey"><button class="num5">5</button></li>
-							<li class="numbKey"><button class="num6">6</button></li>
-							<li class="numbKey"><button class="num1">1</button></li>
-							<li class="numbKey"><button class="num2">2</button></li>
-							<li class="numbKey"><button class="num3">3</button></li>
-						</div>
-						<div class="padRow2">
-							<li class="numbKey"><button class="num0">0</button></li>
-							<li class="numbKey"><button class="decimalPoint">.</button></li>
-						</div>
-					</ul>
-				</div>
+<div class="calc_wrapper">
+	<div class="calTop">
+		<form>
+			<input class="result" type="text" />
+		</form>
+	</div>
+	<div class="calBottom">
+		<div class="calcPad1">
+			<div class="calcSign">
+				<ul>
+					<li class="funcKeytop"><button class="allClear">AC</button></li>
+					<li class="funcKeytop"><button class="plusMinus">±</button></li>
+					<li class="funcKeytop"><button class="percentage">%</button></li>
+				</ul>
 			</div>
-			<div class="calcPad2">
-				<div class="elementary4">
-					<ul>
-						<li class="funcKeyRight"><button class="divi">÷</button></li>
-						<li class="funcKeyRight"><button class="multi">×</button></li>
-						<li class="funcKeyRight"><button class="minus">－</button></li>
-						<li class="funcKeyRight"><button class="plus">＋</button></li>
-						<li class="funcKeyRight"><button class="equal">＝</button></li>
-					</ul>
-				</div>
+			<div class="keyPad">
+				<ul>
+					<div class="padRow1">
+						<li class="numbKey"><button class="num7">7</button></li>
+						<li class="numbKey"><button class="num8">8</button></li>
+						<li class="numbKey"><button class="num9">9</button></li>
+						<li class="numbKey"><button class="num4">4</button></li>
+						<li class="numbKey"><button class="num5">5</button></li>
+						<li class="numbKey"><button class="num6">6</button></li>
+						<li class="numbKey"><button class="num1">1</button></li>
+						<li class="numbKey"><button class="num2">2</button></li>
+						<li class="numbKey"><button class="num3">3</button></li>
+					</div>
+					<div class="padRow2">
+						<li class="numbKey"><button class="num0">0</button></li>
+						<li class="numbKey"><button class="decimalPoint">.</button></li>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div class="calcPad2">
+			<div class="elementary4">
+				<ul>
+					<li class="funcKeyRight"><button class="divi">÷</button></li>
+					<li class="funcKeyRight"><button class="multi">×</button></li>
+					<li class="funcKeyRight"><button class="minus">－</button></li>
+					<li class="funcKeyRight"><button class="plus">＋</button></li>
+					<li class="funcKeyRight"><button class="equal">＝</button></li>
+				</ul>
 			</div>
 		</div>
 	</div>
-</main>
+</div>
