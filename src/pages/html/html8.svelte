@@ -1,11 +1,11 @@
 <style>
-	body,
+	main > div,
 	.calTop,
 	.calBottom {
 		display: flex;
 	}
 
-	body {
+	main > div {
 		flex-direction: column;
 		width: 400px;
 		height: 500px;
@@ -556,7 +556,7 @@
 </script>
 
 <main>
-	<body>
+	<div>
 		<!-- result -->
 		<div class="calTop">
 			<form>
@@ -606,5 +606,5 @@
 				</div>
 			</div>
 		</div>
-	</body>
+	</div>
 </main>
