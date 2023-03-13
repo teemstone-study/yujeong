@@ -557,14 +557,11 @@
 
 <main>
 	<div>
-		<!-- result -->
 		<div class="calTop">
 			<form>
 				<input class="result" type="text" />
 			</form>
 		</div>
-
-		<!-- keyPad -->
 		<div class="calBottom">
 			<div class="calcPad1">
 				<div class="calcSign">
