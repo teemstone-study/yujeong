@@ -271,8 +271,6 @@
 		}
 
 		decimal() {
-			// .이 없으면 아래 메서드가 돌고 있으면 위에가 돌게
-
 			if (this.currentValue && this.firstValue && this.selectedOperator && this.secondValue) {
 				this.currentValue = 0;
 				this.displayText = String(this.currentValue) + '.';
@@ -318,18 +316,6 @@
 		}
 
 		inputNumber(number) {
-			// if (
-			// 	this.firstValue &&
-			// 	this.selectedOperator &&
-			// 	this.secondValue &&
-			// 	this.isdecimalPoint
-			// ) {
-			// 	this.secondValue = number * 0.1;
-			// 	this.displayText = String(this.secondValue);
-			// 	console.log(this,'');
-			// 	return;
-			// }
-
 			if (this.isdecimalPoint === true) {
 			}
 

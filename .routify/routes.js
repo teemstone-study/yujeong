@@ -1,11 +1,11 @@
 
 /**
  * @roxi/routify 2.18.8
- * File generated Mon Mar 13 2023 12:57:20 GMT+0900 (대한민국 표준시)
+ * File generated Wed Mar 15 2023 19:32:46 GMT+0900 (대한민국 표준시)
  */
 
 export const __version = "2.18.8"
-export const __timestamp = "2023-03-13T03:57:20.874Z"
+export const __timestamp = "2023-03-15T10:32:46.737Z"
 
 //buildRoutes
 import { buildClientTree } from "@roxi/routify/runtime/buildRoutes"
@@ -34,6 +34,31 @@ export const _tree = {
       "badExt": false,
       "absolutePath": "C:/Users/yjchoi/Downloads/storybook-main/storybook-main/src/pages/html",
       "children": [
+        {
+          "isFile": true,
+          "isDir": false,
+          "file": "a.html",
+          "filepath": "/html/a.html",
+          "name": "a",
+          "ext": "html",
+          "badExt": false,
+          "absolutePath": "C:/Users/yjchoi/Downloads/storybook-main/storybook-main/src/pages/html/a.html",
+          "importPath": "../src/pages/html/a.html",
+          "isLayout": false,
+          "isReset": false,
+          "isIndex": false,
+          "isFallback": false,
+          "isPage": true,
+          "ownMeta": {},
+          "meta": {
+            "recursive": true,
+            "preload": false,
+            "prerender": true
+          },
+          "path": "/html/a",
+          "id": "_html_a",
+          "component": () => import('../src/pages/html/a.html').then(m => m.default)
+        },
         {
           "isFile": true,
           "isDir": false,
