@@ -1,11 +1,11 @@
 
 /**
  * @roxi/routify 2.18.8
- * File generated Wed Mar 15 2023 19:32:46 GMT+0900 (대한민국 표준시)
+ * File generated Fri Mar 24 2023 15:48:05 GMT+0900 (대한민국 표준시)
  */
 
 export const __version = "2.18.8"
-export const __timestamp = "2023-03-15T10:32:46.737Z"
+export const __timestamp = "2023-03-24T06:48:05.981Z"
 
 //buildRoutes
 import { buildClientTree } from "@roxi/routify/runtime/buildRoutes"
@@ -24,6 +24,55 @@ export const _tree = {
   "ownMeta": {},
   "absolutePath": "src/pages",
   "children": [
+    {
+      "isFile": false,
+      "isDir": true,
+      "file": "async",
+      "filepath": "/async",
+      "name": "async",
+      "ext": "",
+      "badExt": false,
+      "absolutePath": "C:/Users/yjchoi/Downloads/storybook-main/storybook-main/src/pages/async",
+      "children": [
+        {
+          "isFile": true,
+          "isDir": false,
+          "file": "testest.html",
+          "filepath": "/async/testest.html",
+          "name": "testest",
+          "ext": "html",
+          "badExt": false,
+          "absolutePath": "C:/Users/yjchoi/Downloads/storybook-main/storybook-main/src/pages/async/testest.html",
+          "importPath": "../src/pages/async/testest.html",
+          "isLayout": false,
+          "isReset": false,
+          "isIndex": false,
+          "isFallback": false,
+          "isPage": true,
+          "ownMeta": {},
+          "meta": {
+            "recursive": true,
+            "preload": false,
+            "prerender": true
+          },
+          "path": "/async/testest",
+          "id": "_async_testest",
+          "component": () => import('../src/pages/async/testest.html').then(m => m.default)
+        }
+      ],
+      "isLayout": false,
+      "isReset": false,
+      "isIndex": false,
+      "isFallback": false,
+      "isPage": false,
+      "ownMeta": {},
+      "meta": {
+        "recursive": true,
+        "preload": false,
+        "prerender": true
+      },
+      "path": "/async"
+    },
     {
       "isFile": false,
       "isDir": true,
@@ -408,6 +457,31 @@ export const _tree = {
           "path": "/html/html8 copy",
           "id": "_html_html8_copy",
           "component": () => import('../src/pages/html/html8 copy.svelte').then(m => m.default)
+        },
+        {
+          "isFile": true,
+          "isDir": false,
+          "file": "html9.svelte",
+          "filepath": "/html/html9.svelte",
+          "name": "html9",
+          "ext": "svelte",
+          "badExt": false,
+          "absolutePath": "C:/Users/yjchoi/Downloads/storybook-main/storybook-main/src/pages/html/html9.svelte",
+          "importPath": "../src/pages/html/html9.svelte",
+          "isLayout": false,
+          "isReset": false,
+          "isIndex": false,
+          "isFallback": false,
+          "isPage": true,
+          "ownMeta": {},
+          "meta": {
+            "recursive": true,
+            "preload": false,
+            "prerender": true
+          },
+          "path": "/html/html9",
+          "id": "_html_html9",
+          "component": () => import('../src/pages/html/html9.svelte').then(m => m.default)
         }
       ],
       "isLayout": false,
@@ -482,6 +556,31 @@ export const _tree = {
           "path": "/test/:slug",
           "id": "_test__slug",
           "component": () => import('../src/pages/test/[slug].svelte').then(m => m.default)
+        },
+        {
+          "isFile": true,
+          "isDir": false,
+          "file": "html9.svelte",
+          "filepath": "/test/html9.svelte",
+          "name": "html9",
+          "ext": "svelte",
+          "badExt": false,
+          "absolutePath": "C:/Users/yjchoi/Downloads/storybook-main/storybook-main/src/pages/test/html9.svelte",
+          "importPath": "../src/pages/test/html9.svelte",
+          "isLayout": false,
+          "isReset": false,
+          "isIndex": false,
+          "isFallback": false,
+          "isPage": true,
+          "ownMeta": {},
+          "meta": {
+            "recursive": true,
+            "preload": false,
+            "prerender": true
+          },
+          "path": "/test/html9",
+          "id": "_test_html9",
+          "component": () => import('../src/pages/test/html9.svelte').then(m => m.default)
         }
       ],
       "isLayout": false,
