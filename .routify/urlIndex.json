@@ -1,6 +1,8 @@
 [
   "/async/testest",
   "/html/a",
+  "/html/App",
+  "/html/Fruits",
   "/html/html1",
   "/html/html1_flex",
   "/html/html2",
@@ -16,6 +18,7 @@
   "/html/html8",
   "/html/html8 copy",
   "/html/html9",
+  "/html/Something",
   "/index",
   "/test/html9"
 ]

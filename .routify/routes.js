@@ -1,11 +1,11 @@
 
 /**
  * @roxi/routify 2.18.8
- * File generated Fri Mar 24 2023 15:48:05 GMT+0900 (대한민국 표준시)
+ * File generated Thu Mar 30 2023 16:55:54 GMT+0900 (대한민국 표준시)
  */
 
 export const __version = "2.18.8"
-export const __timestamp = "2023-03-24T06:48:05.981Z"
+export const __timestamp = "2023-03-30T07:55:54.796Z"
 
 //buildRoutes
 import { buildClientTree } from "@roxi/routify/runtime/buildRoutes"
@@ -107,6 +107,56 @@ export const _tree = {
           "path": "/html/a",
           "id": "_html_a",
           "component": () => import('../src/pages/html/a.html').then(m => m.default)
+        },
+        {
+          "isFile": true,
+          "isDir": false,
+          "file": "App.svelte",
+          "filepath": "/html/App.svelte",
+          "name": "App",
+          "ext": "svelte",
+          "badExt": false,
+          "absolutePath": "C:/Users/yjchoi/Downloads/storybook-main/storybook-main/src/pages/html/App.svelte",
+          "importPath": "../src/pages/html/App.svelte",
+          "isLayout": false,
+          "isReset": false,
+          "isIndex": false,
+          "isFallback": false,
+          "isPage": true,
+          "ownMeta": {},
+          "meta": {
+            "recursive": true,
+            "preload": false,
+            "prerender": true
+          },
+          "path": "/html/App",
+          "id": "_html_App",
+          "component": () => import('../src/pages/html/App.svelte').then(m => m.default)
+        },
+        {
+          "isFile": true,
+          "isDir": false,
+          "file": "Fruits.svelte",
+          "filepath": "/html/Fruits.svelte",
+          "name": "Fruits",
+          "ext": "svelte",
+          "badExt": false,
+          "absolutePath": "C:/Users/yjchoi/Downloads/storybook-main/storybook-main/src/pages/html/Fruits.svelte",
+          "importPath": "../src/pages/html/Fruits.svelte",
+          "isLayout": false,
+          "isReset": false,
+          "isIndex": false,
+          "isFallback": false,
+          "isPage": true,
+          "ownMeta": {},
+          "meta": {
+            "recursive": true,
+            "preload": false,
+            "prerender": true
+          },
+          "path": "/html/Fruits",
+          "id": "_html_Fruits",
+          "component": () => import('../src/pages/html/Fruits.svelte').then(m => m.default)
         },
         {
           "isFile": true,
@@ -482,6 +532,31 @@ export const _tree = {
           "path": "/html/html9",
           "id": "_html_html9",
           "component": () => import('../src/pages/html/html9.svelte').then(m => m.default)
+        },
+        {
+          "isFile": true,
+          "isDir": false,
+          "file": "Something.svelte",
+          "filepath": "/html/Something.svelte",
+          "name": "Something",
+          "ext": "svelte",
+          "badExt": false,
+          "absolutePath": "C:/Users/yjchoi/Downloads/storybook-main/storybook-main/src/pages/html/Something.svelte",
+          "importPath": "../src/pages/html/Something.svelte",
+          "isLayout": false,
+          "isReset": false,
+          "isIndex": false,
+          "isFallback": false,
+          "isPage": true,
+          "ownMeta": {},
+          "meta": {
+            "recursive": true,
+            "preload": false,
+            "prerender": true
+          },
+          "path": "/html/Something",
+          "id": "_html_Something",
+          "component": () => import('../src/pages/html/Something.svelte').then(m => m.default)
         }
       ],
       "isLayout": false,
